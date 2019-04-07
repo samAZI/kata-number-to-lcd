@@ -62,9 +62,9 @@ describe('Convert Number to LCD', function () {
 
 	})
 
-	describe.only('manyNumberToLcd', function () {
+	describe('manyNumberToLcd', function () {
 		it ('should return 42 in digit', function () {
-			const result = manyNumberToLcd(42)
+			const result = manyNumberToLcd('42')
 			const expectedResult  = `
     _ 
 |_| _|
@@ -73,6 +73,29 @@ describe('Convert Number to LCD', function () {
 			assert.equal(result, expectedResult)
 
 		})
+
+		it ('should return 4242 in digit', function () {
+			const result = manyNumberToLcd('4242')
+			const expectedResult  = `
+    _     _ 
+|_| _||_| _|
+  ||_   ||_ 
+`
+			assert.equal(result, expectedResult)
+
+		})
+
+		it ('should return 123456789 in digit', function () {
+			const result = manyNumberToLcd('123456789')
+			const expectedResult  = `
+   _  _     _  _  _  _  _ 
+ | _| _||_||_ |_   ||_||_|
+ ||_  _|  | _||_|  ||_| _|
+`
+			assert.equal(result, expectedResult)
+
+		})
+
 	})
 
 

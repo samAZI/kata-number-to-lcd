@@ -11,17 +11,23 @@ const lcdDigitList = [
 	require('./digits/9.js')()
 ]
 
-exports.numberToLcd = function (number) {
+const numberToLcd = function (number) {
 	return lcdDigitList[number]
 }
 
+exports.numberToLcd = numberToLcd
+
 exports.manyNumberToLcd = function (numbers) {
-	return `
-    _ 
-|_| _|
-  ||_ 
-`
-	// for (let currentIndex = 0; currentIndex < numbers.length; currentIndex++) {
-	//   console.log(numbers.charAt(currentIndex))
-	// }
+	let line1 = ''
+	let line2 = ''
+	let line3 = ''
+
+	for (let number of numbers) {
+		const digitSplitted = numberToLcd(Number(number)).split('\n')
+	  line1 += digitSplitted[1]
+	  line2 += digitSplitted[2]
+	  line3 += digitSplitted[3]
+	}
+
+	return `\n${line1}\n${line2}\n${line3}\n`
 }
