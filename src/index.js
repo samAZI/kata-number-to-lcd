@@ -3,9 +3,17 @@ const args = process.argv;
 
 
 exports.numberToLcd = function (number) {
-	return `
+	if (number === '1') {
+		return `
 
 |
 |
 `
+	}
+	return `
+ _ 
+ _|
+|_ 
+`
+
 }

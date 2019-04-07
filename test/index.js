@@ -16,5 +16,18 @@ describe('numberToLcd', function () {
 
 	})
 
+	it('should return LCD format of 2', function () {
+		const number = '2'
+		const expectedResult = `
+ _ 
+ _|
+|_ 
+`
+		const result = numberToLcd('2')
+
+		assert.equal(result, expectedResult)
+
+	})
+
 })
 
