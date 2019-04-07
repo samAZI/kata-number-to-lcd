@@ -1,33 +1,67 @@
 const assert = require('assert');
 const { numberToLcd } = require('../src/');
-
-describe('numberToLcd', function () {
-
-	it('should return LCD format of 1', function () {
-		const number = '1'
-		const expectedResult = `
-
+const digitList = [`
+ _ 
+| |
+|_|
+`,`
+ 
 |
 |
-`
-		const result = numberToLcd('1')
-
-		assert.equal(result, expectedResult)
-
-	})
-
-	it('should return LCD format of 2', function () {
-		const number = '2'
-		const expectedResult = `
+`,`
  _ 
  _|
 |_ 
+`,`
+ _ 
+ _|
+ _|
+`,`
+   
+|_|
+  |
+`,`
+ _ 
+|_ 
+ _|
+`,`
+ _ 
+|_ 
+|_|
+`,`
+ _ 
+  |
+  |
+`,`
+ _ 
+|_|
+|_|
+`,`
+ _ 
+|_|
+ _|
 `
-		const result = numberToLcd('2')
+]
 
-		assert.equal(result, expectedResult)
+describe('numberToLcd', function () {
+
+	describe('one digit at time', function () {
+
+			function testDigitConvertion(expectedDigit, currentNumber) {
+				it(`number ${currentNumber}`, function (done) {
+					const result = numberToLcd(currentNumber)
+
+					assert.equal(result, expectedDigit)
+					done()
+				})
+			}
+
+			digitList.forEach(function(digit, index) {
+				testDigitConvertion(digit, index)
+			})
 
 	})
+
 
 })
 
