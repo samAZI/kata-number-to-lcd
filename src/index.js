@@ -4,8 +4,6 @@ const numberToLcd = function (number) {
 	return lcdDigitList[number]
 }
 
-exports.numberToLcd = numberToLcd
-
 const manyNumberToLcd = function (numbers) {
 	let line1 = ''
 	let line2 = ''
