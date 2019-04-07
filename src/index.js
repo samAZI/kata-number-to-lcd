@@ -17,7 +17,7 @@ const numberToLcd = function (number) {
 
 exports.numberToLcd = numberToLcd
 
-exports.manyNumberToLcd = function (numbers) {
+const manyNumberToLcd = function (numbers) {
 	let line1 = ''
 	let line2 = ''
 	let line3 = ''
@@ -30,4 +30,9 @@ exports.manyNumberToLcd = function (numbers) {
 	}
 
 	return `\n${line1}\n${line2}\n${line3}\n`
+}
+
+module.exports = {
+	numberToLcd,
+	manyNumberToLcd,
 }
