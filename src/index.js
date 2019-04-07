@@ -1,4 +1,11 @@
 
 const args = process.argv;
 
-console.log({args});
+
+exports.numberToLcd = function (number) {
+	return `
+
+|
+|
+`
+}

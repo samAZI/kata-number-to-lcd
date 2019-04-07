@@ -1,13 +1,19 @@
 const assert = require('assert');
+const { numberToLcd } = require('../src/');
 
-describe('init testing', function () {
+describe('numberToLcd', function () {
 
-	it('should failed', function() {
-			assert.equal(false, true)
-	})
+	it('should return LCD format of 1', function () {
+		const number = '1'
+		const expectedResult = `
 
-	it('should pass', function() {
-			assert.equal(true, true)
+|
+|
+`
+		const result = numberToLcd('1')
+
+		assert.equal(result, expectedResult)
+
 	})
 
 })
