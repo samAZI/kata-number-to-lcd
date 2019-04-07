@@ -14,3 +14,14 @@ const lcdDigitList = [
 exports.numberToLcd = function (number) {
 	return lcdDigitList[number]
 }
+
+exports.manyNumberToLcd = function (numbers) {
+	return `
+    _ 
+|_| _|
+  ||_ 
+`
+	// for (let currentIndex = 0; currentIndex < numbers.length; currentIndex++) {
+	//   console.log(numbers.charAt(currentIndex))
+	// }
+}
