@@ -244,10 +244,8 @@ describe('Convert Number to LCD', function () {
             const result = resizeDigit(digit, { width })
             const expectedResult = `
  __ 
-   |
- __ 
-|   
- __ 
+ __|
+|__ 
 `
             assert.equal(result, expectedResult)
         })

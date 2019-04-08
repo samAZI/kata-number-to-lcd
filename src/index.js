@@ -7,6 +7,8 @@ const numberToDigit = function (number) {
 const resizeDigitWidth = function (digit, width) {
     if (digit === numberToDigit(1)) {
         return digit
+    } else if (width === 1) {
+        return digit
     }
 
     const digitSplit = digit.split('\n')
@@ -31,18 +33,22 @@ const resizeDigitWidth = function (digit, width) {
 }
 
 const resizeDigitHeight = function (digit, height) {
+    if (height <= 1) {
+        return digit
+    }
     const digitSplit = digit.split('\n')
     let digitResize = '\n'
     const upperLine = digitSplit[2]
     const downLine = digitSplit[3]
+    const lineWidth = digitSplit[2].length
 
     digitResize += `${digitSplit[1]}\n`
     for (let iteratorHeight = 0; iteratorHeight < height; iteratorHeight++) {
-        digitResize += `${upperLine.charAt(0)} ${upperLine.charAt(2)}\n`
+        digitResize += `${upperLine.charAt(0)} ${upperLine.charAt(lineWidth - 1)}\n`
     }
     digitResize += ` ${upperLine.charAt(1)} \n`
     for (let iteratorHeight = 0; iteratorHeight < height; iteratorHeight++) {
-        digitResize += `${downLine.charAt(0)} ${downLine.charAt(2)}\n`
+        digitResize += `${downLine.charAt(0)} ${downLine.charAt(lineWidth - 1)}\n`
     }
     digitResize += ` ${downLine.charAt(1)} \n`
     return digitResize
