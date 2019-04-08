@@ -28,7 +28,24 @@ const resizeDigitWidth = function (digit, width) {
     }
 
     return digitResize
+}
 
+const resizeDigitHeight = function (digit, height) {
+    const digitSplit = digit.split('\n')
+    let digitResize = '\n'
+    const upperLine = digitSplit[2]
+    const downLine = digitSplit[3]
+
+    digitResize += `${digitSplit[1]}\n`
+    for (let iteratorHeight = 0; iteratorHeight < height; iteratorHeight++) {
+        digitResize += `${upperLine.charAt(0)} ${upperLine.charAt(2)}\n`
+    }
+    digitResize += ` ${upperLine.charAt(1)} \n`
+    for (let iteratorHeight = 0; iteratorHeight < height; iteratorHeight++) {
+        digitResize += `${downLine.charAt(0)} ${downLine.charAt(2)}\n`
+    }
+    digitResize += ` ${downLine.charAt(1)} \n`
+    return digitResize
 }
 
 const manyNumberToDigit = function (numbers) {
@@ -50,4 +67,5 @@ module.exports = {
     numberToDigit,
     manyNumberToDigit,
     resizeDigitWidth,
+    resizeDigitHeight,
 }

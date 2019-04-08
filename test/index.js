@@ -1,5 +1,5 @@
 const assert = require('assert')
-const { manyNumberToDigit, numberToDigit, resizeDigitWidth } = require('../src/')
+const { manyNumberToDigit, numberToDigit, resizeDigitWidth, resizeDigitHeight } = require('../src/')
 const digitList = [`
  _ 
 | |
@@ -127,7 +127,26 @@ describe('Convert Number to LCD', function () {
 
     })
 
-    describe('manyNumberToDigit', function () {
+    describe('resizeDigitHeight', function () {
+
+        it('should return digit 2 resizing his height to 2', function () {
+            const height = 2
+            const digit = numberToDigit('2')
+            const result = resizeDigitHeight(digit, height)
+            const expectedResult = `
+ _ 
+  |
+  |
+ _ 
+|  
+|  
+ _ 
+`
+            assert.equal(result, expectedResult)
+        })
+    })
+
+        describe('manyNumberToDigit', function () {
         it('should return 42 in digit', function () {
             const result = manyNumberToDigit('42')
             const expectedResult = `
