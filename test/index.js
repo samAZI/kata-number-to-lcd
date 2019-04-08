@@ -332,6 +332,23 @@ describe('Convert Number to LCD', function () {
 `
             assert.equal(result, expectedResult)
         })
+
+        it('should call me at 0663455304', function () {
+            const width = 5
+            const height = 2
+            const result = manyNumberToDigit('0663455304', { width, height })
+            const expectedResult = `
+ _____   _____   _____   _____           _____   _____   _____   _____         
+|     | |       |             | |     | |       |             | |     | |     |
+|     | |       |             | |     | |       |             | |     | |     |
+|     | |_____  |_____   _____| |_____| |_____  |_____   _____| |     | |_____|
+|     | |     | |     |       |       |       |       |       | |     |       |
+|     | |     | |     |       |       |       |       |       | |     |       |
+|_____| |_____| |_____|  _____|       |  _____|  _____|  _____| |_____|       |
+`
+            assert.equal(result, expectedResult)
+        })
+
     })
 
 })
