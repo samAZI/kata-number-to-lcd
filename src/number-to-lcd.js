@@ -46,11 +46,11 @@ const resizeDigitHeight = function (digit, height) {
     for (let iteratorHeight = 0; iteratorHeight < height; iteratorHeight++) {
         digitResize += `${upperLine.charAt(0)} ${upperLine.charAt(lineWidth - 1)}\n`
     }
-    digitResize += ` ${upperLine.charAt(1)} \n`
+    digitResize += `${upperLine.charAt(0)}${upperLine.charAt(1)}${upperLine.charAt(2)}\n`
     for (let iteratorHeight = 0; iteratorHeight < height; iteratorHeight++) {
         digitResize += `${downLine.charAt(0)} ${downLine.charAt(lineWidth - 1)}\n`
     }
-    digitResize += ` ${downLine.charAt(1)} \n`
+    digitResize += `${downLine.charAt(0)}${downLine.charAt(1)}${downLine.charAt(2)}\n`
     return digitResize
 }
 

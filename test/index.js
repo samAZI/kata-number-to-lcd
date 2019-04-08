@@ -137,10 +137,10 @@ describe('Convert Number to LCD', function () {
  _ 
   |
   |
- _ 
+ _|
 |  
 |  
- _ 
+|_ 
 `
             assert.equal(result, expectedResult)
         })
@@ -153,10 +153,10 @@ describe('Convert Number to LCD', function () {
    
 | |
 | |
- _ 
+|_|
   |
   |
-   
+  |
 `
             assert.equal(result, expectedResult)
         })
@@ -170,11 +170,11 @@ describe('Convert Number to LCD', function () {
 | |
 | |
 | |
- _ 
+|_|
   |
   |
   |
- _ 
+ _|
 `
             assert.equal(result, expectedResult)
         })
@@ -193,11 +193,11 @@ describe('Convert Number to LCD', function () {
 |          |
 |          |
 |          |
-            
 |          |
 |          |
 |          |
- __________ 
+|          |
+|__________|
 `
             assert.equal(result, expectedResult)
         })
@@ -210,10 +210,10 @@ describe('Convert Number to LCD', function () {
  _ 
   |
   |
- _ 
+ _|
 |  
 |  
- _ 
+|_ 
 `
             assert.equal(result, expectedResult)
         })
@@ -276,10 +276,10 @@ describe('Convert Number to LCD', function () {
       ___ 
 |   |    |
 |   |    |
- ___  ___ 
+|___| ___|
     ||    
     ||    
-      ___ 
+    ||___ 
 `
             assert.equal(result, expectedResult)
         })
