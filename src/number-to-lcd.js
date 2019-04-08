@@ -1,5 +1,8 @@
 const lcdDigitList = require('./digits')
 
+const SPACE = ' '
+const CARRIAGE_RETURN = '\n'
+
 const numberToDigit = function (number) {
     return lcdDigitList[number]
 }
@@ -11,9 +14,9 @@ const resizeDigitWidth = function (digit, width) {
         return digit
     }
 
-    const digitSplit = digit.split('\n')
+    const digitSplit = digit.split(CARRIAGE_RETURN)
     const height = digitSplit.length - 2 // remove extra \n at start and end
-    let digitResize = '\n'
+    let digitResize = CARRIAGE_RETURN
 
     // iterate though every lines
     for (let heightIterator = 0; heightIterator < height; heightIterator++) {
@@ -36,8 +39,8 @@ const resizeDigitHeight = function (digit, height) {
     if (height <= 1) {
         return digit
     }
-    const digitSplit = digit.split('\n')
-    let digitResize = '\n'
+    const digitSplit = digit.split(CARRIAGE_RETURN)
+    let digitResize = CARRIAGE_RETURN
     const upperLine = digitSplit[2]
     const downLine = digitSplit[3]
     const lineWidth = digitSplit[2].length
@@ -69,20 +72,20 @@ const manyNumberToDigit = function (numbers, options) {
     // fill every digit lines
     for (const number of numbers) {
         const resizedDigit = resizeDigit(numberToDigit(Number(number)), options)
-        const digitSplit = resizedDigit.split('\n')
+        const digitSplit = resizedDigit.split(CARRIAGE_RETURN)
 
         for (let heightIndex = 1; heightIndex < digitSplit.length - 1; heightIndex++) {
             // first digit position y=0 x=0 need \n and to be assigned
             if (numberIndex === 0 && heightIndex === 1 && !digitLines[heightIndex]) {
-                digitLines[heightIndex] = '\n' + digitSplit[heightIndex] + ' '
+                digitLines[heightIndex] = CARRIAGE_RETURN + digitSplit[heightIndex] + SPACE
 
             // other first digit in position y need to be assigned
             } else if (!digitLines[heightIndex]) {
-                    digitLines[heightIndex] = digitSplit[heightIndex]  + ' '
+                    digitLines[heightIndex] = digitSplit[heightIndex]  + SPACE
 
             // if its not the last word, a space to improve lisibility
             } else if (numberIndex + 1 < numbers.length) {
-                digitLines[heightIndex] += digitSplit[heightIndex] + ' '
+                digitLines[heightIndex] += digitSplit[heightIndex] + SPACE
 
             // last words don't need extra space
             } else {
