@@ -59,26 +59,33 @@ const resizeDigit = function (digit, options) {
         return digit
     }
     const { width = 1, height = 1 } = options
-    const digitResize = resizeDigitWidth(resizeDigitHeight(digit, height), width)
-    // console.log('digitResize')
-    // console.log(digitResize)
-    return digitResize
+    return resizeDigitWidth(resizeDigitHeight(digit, height), width)
 }
 
 const manyNumberToDigit = function (numbers, options = {}) {
-    let line1 = ''
-    let line2 = ''
-    let line3 = ''
+    const digitLines = []
 
+    // fill every digit lines
     for (let number of numbers) {
         const resizedDigit = resizeDigit(numberToDigit(Number(number)), options)
         const digitSplit = resizedDigit.split('\n')
-        line1 += digitSplit[1]
-        line2 += digitSplit[2]
-        line3 += digitSplit[3]
+
+        for (let heightIterator = 0; heightIterator < digitSplit.length - 1; heightIterator++) {
+            if (!digitLines[heightIterator]) {
+                digitLines[heightIterator] = digitSplit[heightIterator]
+            } else {
+                digitLines[heightIterator] += digitSplit[heightIterator]
+            }
+        }
     }
 
-    return `\n${line1}\n${line2}\n${line3}\n`
+    // convert digit lines as one string
+    const manyDigit = digitLines.reduce((result, line) => {
+        result += `${line}\n`
+        return result
+    }, '')
+
+    return manyDigit
 }
 
 module.exports = {
