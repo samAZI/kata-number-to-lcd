@@ -236,9 +236,9 @@ describe('Convert Number to LCD', function () {
         it('should return 42 in digit', function () {
             const result = manyNumberToDigit('42')
             const expectedResult = `
-    _ 
-|_| _|
-  ||_ 
+     _ 
+|_|  _|
+  | |_ 
 `
             assert.equal(result, expectedResult)
 
@@ -247,9 +247,9 @@ describe('Convert Number to LCD', function () {
         it('should return 4242 in digit', function () {
             const result = manyNumberToDigit('4242')
             const expectedResult = `
-    _     _ 
-|_| _||_| _|
-  ||_   ||_ 
+     _       _ 
+|_|  _| |_|  _|
+  | |_    | |_ 
 `
             assert.equal(result, expectedResult)
 
@@ -258,9 +258,9 @@ describe('Convert Number to LCD', function () {
         it('should return 123456789 in digit', function () {
             const result = manyNumberToDigit('123456789')
             const expectedResult = `
-    _  _     _  _  _  _  _ 
-  | _| _||_||_ |_   ||_||_|
-  ||_  _|  | _||_|  ||_| _|
+     _   _       _   _   _   _   _ 
+  |  _|  _| |_| |_  |_    | |_| |_|
+  | |_   _|   |  _| |_|   | |_|  _|
 `
             assert.equal(result, expectedResult)
         })
@@ -273,13 +273,13 @@ describe('Convert Number to LCD', function () {
             const height = 2
             const result = manyNumberToDigit('42', { width, height })
             const expectedResult = `
-      ___ 
-|   |    |
-|   |    |
-|___| ___|
-    ||    
-    ||    
-    ||___ 
+       ___ 
+|   |     |
+|   |     |
+|___|  ___|
+    | |    
+    | |    
+    | |___ 
 `
             assert.equal(result, expectedResult)
         })

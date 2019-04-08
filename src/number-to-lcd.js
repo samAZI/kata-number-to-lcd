@@ -62,21 +62,34 @@ const resizeDigit = function (digit, options) {
     return resizeDigitWidth(resizeDigitHeight(digit, height), width)
 }
 
-const manyNumberToDigit = function (numbers, options = {}) {
+const manyNumberToDigit = function (numbers, options) {
     const digitLines = []
+    let numberIndex = 0
 
     // fill every digit lines
-    for (let number of numbers) {
+    for (const number of numbers) {
         const resizedDigit = resizeDigit(numberToDigit(Number(number)), options)
         const digitSplit = resizedDigit.split('\n')
 
-        for (let heightIterator = 0; heightIterator < digitSplit.length - 1; heightIterator++) {
-            if (!digitLines[heightIterator]) {
-                digitLines[heightIterator] = digitSplit[heightIterator]
+        for (let heightIndex = 1; heightIndex < digitSplit.length - 1; heightIndex++) {
+            // first digit position y=0 x=0 need \n and to be assigned
+            if (numberIndex === 0 && heightIndex === 1 && !digitLines[heightIndex]) {
+                digitLines[heightIndex] = '\n' + digitSplit[heightIndex] + ' '
+
+            // other first digit in position y need to be assigned
+            } else if (!digitLines[heightIndex]) {
+                    digitLines[heightIndex] = digitSplit[heightIndex]  + ' '
+
+            // if its not the last word, a space to improve lisibility
+            } else if (numberIndex + 1 < numbers.length) {
+                digitLines[heightIndex] += digitSplit[heightIndex] + ' '
+
+            // last words don't need extra space
             } else {
-                digitLines[heightIterator] += digitSplit[heightIterator]
+                digitLines[heightIndex] += digitSplit[heightIndex]
             }
         }
+        numberIndex++
     }
     return digitLinesToString(digitLines)
 }
