@@ -54,7 +54,7 @@ const resizeDigitHeight = function (digit, height) {
     for (let iteratorHeight = 0; iteratorHeight < height; iteratorHeight++) {
         digitResize += `${downLine.charAt(0)} ${downLine.charAt(lineWidth - 1)}\n`
     }
-    digitResize += `${downLine.charAt(0)}${downLine.charAt(1)}${downLine.charAt(2)}\n`
+    digitResize += `${downLine.charAt(0)}${downLine.charAt(1)}${downLine.charAt(lineWidth - 1)}\n`
     return digitResize
 }
 
