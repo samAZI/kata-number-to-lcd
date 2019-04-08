@@ -1,5 +1,5 @@
 const assert = require('assert')
-const { manyNumberToDigit, numberToDigit, resizeDigitWidth, resizeDigitHeight, resizeDigit } = require('../src/')
+const { manyNumberToDigit, numberToDigit, resizeDigitWidth, resizeDigitHeight, resizeDigit } = require('../src/number-to-lcd')
 const digitList = [`
  _ 
 | |
