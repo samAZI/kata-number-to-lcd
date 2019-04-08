@@ -15,7 +15,12 @@
 | Height   | Digits height                    | false    | 1         |
 
 ### Run project
-`npm start [numbers] [width] [height]`
+```
+nvm use
+npm install
+npm start <numbers> <width> <height>
+```
 
-### Run test
+
+### Run tests
 `npm run test`
