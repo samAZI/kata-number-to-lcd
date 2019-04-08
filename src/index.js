@@ -54,20 +54,25 @@ const resizeDigitHeight = function (digit, height) {
     return digitResize
 }
 
-const resizeDigit = function (digit, { width = 1, height = 1}) {
+const resizeDigit = function (digit, options) {
+    if (!options) {
+        return digit
+    }
+    const { width = 1, height = 1 } = options
     const digitResize = resizeDigitWidth(resizeDigitHeight(digit, height), width)
     // console.log('digitResize')
     // console.log(digitResize)
     return digitResize
 }
 
-const manyNumberToDigit = function (numbers) {
+const manyNumberToDigit = function (numbers, options = {}) {
     let line1 = ''
     let line2 = ''
     let line3 = ''
 
     for (let number of numbers) {
-        const digitSplit = numberToDigit(Number(number)).split('\n')
+        const resizedDigit = resizeDigit(numberToDigit(Number(number)), options)
+        const digitSplit = resizedDigit.split('\n')
         line1 += digitSplit[1]
         line2 += digitSplit[2]
         line3 += digitSplit[3]
