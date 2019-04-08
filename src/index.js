@@ -9,8 +9,8 @@ const resizeDigitWidth = function (digit, width) {
         return digit
     }
 
-    const height = 3
     const digitSplit = digit.split('\n')
+    const height = digitSplit.length - 2 // remove extra \n at start and end
     let digitResize = '\n'
 
     // iterate though every lines
@@ -48,6 +48,11 @@ const resizeDigitHeight = function (digit, height) {
     return digitResize
 }
 
+const resizeDigit = function (digit, { width, height }) {
+    const digitResize = resizeDigitWidth(resizeDigitHeight(digit, height), width)
+    return digitResize
+}
+
 const manyNumberToDigit = function (numbers) {
     let line1 = ''
     let line2 = ''
@@ -68,4 +73,5 @@ module.exports = {
     manyNumberToDigit,
     resizeDigitWidth,
     resizeDigitHeight,
+    resizeDigit,
 }
