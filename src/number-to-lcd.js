@@ -10,7 +10,7 @@ const numberToDigit = function (number) {
 const resizeDigitWidth = function (digit, width) {
     if (digit === numberToDigit(1)) {
         return digit
-    } else if (width === 1) {
+    } else if (width <= 1) {
         return digit
     }
 

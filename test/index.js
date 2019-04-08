@@ -183,7 +183,7 @@ describe('Convert Number to LCD', function () {
 
     describe('resizeDigit', function () {
 
-        it('should return digit 2 resizing his width to 3 and his height to 2', function () {
+        it('should return digit 0 resizing his width to 10 and his height to 3', function () {
             const width = 10
             const height = 3
             const digit = numberToDigit('0')
@@ -218,6 +218,36 @@ describe('Convert Number to LCD', function () {
             assert.equal(result, expectedResult)
         })
 
+        it('should return width 1 if giving less than 1', function () {
+            const height = 2
+            const width = -10
+            const digit = numberToDigit('2')
+            const result = resizeDigit(digit, { height, width })
+            const expectedResult = `
+ _ 
+  |
+  |
+ _|
+|  
+|  
+|_ 
+`
+            assert.equal(result, expectedResult)
+        })
+
+        it('should return height 1 if giving less than 1', function () {
+            const height = -5
+            const width = 2
+            const digit = numberToDigit('2')
+            const result = resizeDigit(digit, { width, height })
+            const expectedResult = `
+ __ 
+ __|
+|__ 
+`
+            assert.equal(result, expectedResult)
+        })
+
         it('default height should be 1', function () {
             const width = 2
             const digit = numberToDigit('2')
@@ -229,6 +259,7 @@ describe('Convert Number to LCD', function () {
 `
             assert.equal(result, expectedResult)
         })
+
     })
 
     describe('manyNumberToDigit', function () {
