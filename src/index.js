@@ -1,4 +1,4 @@
-const  {manyNumberToDigit } = require('./number-to-lcd')
+const  { manyNumberToDigit } = require('./number-to-lcd')
 
 const USAGE = 'Usage npm start numbers[Integer] width[Integer](default:1) height[Integer](default:1)'
 const argv = process.argv.slice(2)

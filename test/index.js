@@ -283,6 +283,24 @@ describe('Convert Number to LCD', function () {
 `
             assert.equal(result, expectedResult)
         })
+
+        it('should return 0123456789 in digit width 7 and height 3', function () {
+            const width = 7
+            const height = 3
+            const result = manyNumberToDigit('0123456789', { width, height })
+            const expectedResult = `
+ _______             _______   _______             _______   _______   _______   _______   _______ 
+|       |         |         |         | |       | |         |                 | |       | |       |
+|       |         |         |         | |       | |         |                 | |       | |       |
+|       |         |         |         | |       | |         |                 | |       | |       |
+|       |         |  _______|  _______| |_______| |_______  |_______          | |_______| |_______|
+|       |         | |                 |         |         | |       |         | |       |         |
+|       |         | |                 |         |         | |       |         | |       |         |
+|       |         | |                 |         |         | |       |         | |       |         |
+|_______|         | |_______   _______|         |  _______| |_______|         | |_______|  _______|
+`
+            assert.equal(result, expectedResult)
+        })
     })
 
 })
