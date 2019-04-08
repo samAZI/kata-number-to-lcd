@@ -8,6 +8,7 @@ const numberToDigit = function (number) {
 }
 
 const resizeDigitWidth = function (digit, width) {
+    // No width resizing for digit 1
     if (digit === numberToDigit(1)) {
         return digit
     } else if (width <= 1) {
@@ -61,7 +62,8 @@ const resizeDigit = function (digit, options) {
     if (!options) {
         return digit
     }
-    const { width = 1, height = 1 } = options
+    // at least width or height is given by user input
+    const { width = 1, height = 1 } = options // we set missing default value by precaution
     return resizeDigitWidth(resizeDigitHeight(digit, height), width)
 }
 
@@ -71,6 +73,7 @@ const manyNumberToDigit = function (numbers, options) {
 
     // fill every digit lines
     for (const number of numbers) {
+        // get right sized digit
         const resizedDigit = resizeDigit(numberToDigit(Number(number)), options)
         const digitSplit = resizedDigit.split(CARRIAGE_RETURN)
 
