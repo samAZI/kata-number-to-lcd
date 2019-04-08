@@ -5,9 +5,9 @@ const digitList = [`
 | |
 |_|
 `, `
-  
- |
- |
+   
+  |
+  |
 `, `
  _ 
  _|
@@ -69,9 +69,9 @@ describe('Convert Number to LCD', function () {
             const digit = numberToDigit('1')
             const result = resizeDigitWidth(digit, width)
             const expectedResult = `
-  
- |
- |
+   
+  |
+  |
 `
             assert.equal(result, expectedResult)
         })
@@ -258,9 +258,9 @@ describe('Convert Number to LCD', function () {
         it('should return 123456789 in digit', function () {
             const result = manyNumberToDigit('123456789')
             const expectedResult = `
-   _  _     _  _  _  _  _ 
- | _| _||_||_ |_   ||_||_|
- ||_  _|  | _||_|  ||_| _|
+    _  _     _  _  _  _  _ 
+  | _| _||_||_ |_   ||_||_|
+  ||_  _|  | _||_|  ||_| _|
 `
             assert.equal(result, expectedResult)
         })
