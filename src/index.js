@@ -78,14 +78,14 @@ const manyNumberToDigit = function (numbers, options = {}) {
             }
         }
     }
+    return digitLinesToString(digitLines)
+}
 
-    // convert digit lines as one string
-    const manyDigit = digitLines.reduce((result, line) => {
+const digitLinesToString= function (digitLines) {
+    return digitLines.reduce((result, line) => {
         result += `${line}\n`
         return result
     }, '')
-
-    return manyDigit
 }
 
 module.exports = {
