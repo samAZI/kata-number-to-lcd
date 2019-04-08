@@ -144,6 +144,41 @@ describe('Convert Number to LCD', function () {
 `
             assert.equal(result, expectedResult)
         })
+
+        it('should return digit 4 resizing his height to 2', function () {
+            const height = 2
+            const digit = numberToDigit('4')
+            const result = resizeDigitHeight(digit, height)
+            const expectedResult = `
+   
+| |
+| |
+ _ 
+  |
+  |
+   
+`
+            assert.equal(result, expectedResult)
+        })
+
+        it('should return digit 9 resizing his height to 3', function () {
+            const height = 3
+            const digit = numberToDigit('9')
+            const result = resizeDigitHeight(digit, height)
+            const expectedResult = `
+ _ 
+| |
+| |
+| |
+ _ 
+  |
+  |
+  |
+ _ 
+`
+            assert.equal(result, expectedResult)
+        })
+
     })
 
         describe('manyNumberToDigit', function () {
