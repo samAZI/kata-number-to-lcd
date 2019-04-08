@@ -221,6 +221,36 @@ describe('Convert Number to LCD', function () {
 `
             assert.equal(result, expectedResult)
         })
+
+        it('default width should be 1', function () {
+            const height = 2
+            const digit = numberToDigit('2')
+            const result = resizeDigit(digit, { height })
+            const expectedResult = `
+ _ 
+  |
+  |
+ _ 
+|  
+|  
+ _ 
+`
+            assert.equal(result, expectedResult)
+        })
+
+        it('default height should be 1', function () {
+            const width = 2
+            const digit = numberToDigit('2')
+            const result = resizeDigit(digit, { width })
+            const expectedResult = `
+ __ 
+   |
+ __ 
+|   
+ __ 
+`
+            assert.equal(result, expectedResult)
+        })
     })
 
     describe('manyNumberToDigit', function () {

@@ -48,8 +48,10 @@ const resizeDigitHeight = function (digit, height) {
     return digitResize
 }
 
-const resizeDigit = function (digit, { width, height }) {
+const resizeDigit = function (digit, { width = 1, height = 1}) {
     const digitResize = resizeDigitWidth(resizeDigitHeight(digit, height), width)
+    // console.log('digitResize')
+    // console.log(digitResize)
     return digitResize
 }
 
