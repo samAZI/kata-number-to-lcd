@@ -1,5 +1,5 @@
 const assert = require('assert')
-const { manyNumberToDigit, numberToDigit } = require('../src/')
+const { manyNumberToDigit, numberToDigit, resizeDigitWidth } = require('../src/')
 const digitList = [`
  _ 
 | |
@@ -58,6 +58,22 @@ describe('Convert Number to LCD', function () {
 
         digitList.forEach(function (digit, index) {
             testDigitConvertion(digit, index)
+        })
+
+    })
+
+    describe('resizeDigitWidth', function () {
+
+        it('should return 1 digit without resizing his width', function () {
+            const width = 5
+            const digit = numberToDigit('1')
+            const result = resizeDigitWidth(digit, width)
+            const expectedResult = `
+  
+ |
+ |
+`
+            assert.equal(result, expectedResult)
         })
 
     })
